@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 interface DashboardData {
   quotas: { segment: string; current_count: number; min_target: number; max_target: number }[] | null;
@@ -99,6 +100,12 @@ export default function AdminDashboardPage() {
             >
               Test Survey
             </button>
+            <Link
+              href="/admin/analysis"
+              className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50"
+            >
+              Analysis
+            </Link>
             <button onClick={handleExport} className="btn-primary">
               Export CSV
             </button>
