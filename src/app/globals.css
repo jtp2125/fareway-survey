@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+html {
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Prevent iOS zoom on input focus */
+input[type="text"],
+input[type="number"],
+textarea,
+select {
+  font-size: 16px;
+}
+
+/* Custom radio/checkbox sizing for mobile tap targets */
+@layer components {
+  .radio-option {
+    @apply flex items-center gap-3 p-3 rounded-lg border border-gray-200 
+           cursor-pointer transition-all hover:border-primary hover:bg-primary-light;
+  }
+  .radio-option.selected {
+    @apply border-primary bg-primary-light;
+  }
+  .radio-dot {
+    @apply w-5 h-5 rounded-full border-2 border-gray-300 flex-shrink-0
+           flex items-center justify-center;
+  }
+  .radio-dot.selected {
+    @apply border-primary;
+  }
+  .radio-dot.selected::after {
+    content: '';
+    @apply w-2.5 h-2.5 rounded-full bg-primary;
+  }
+  .checkbox-option {
+    @apply flex items-center gap-3 p-3 rounded-lg border border-gray-200 
+           cursor-pointer transition-all hover:border-primary hover:bg-primary-light;
+  }
+  .checkbox-option.selected {
+    @apply border-primary bg-primary-light;
+  }
+  .btn-primary {
+    @apply bg-primary text-white font-semibold py-3 px-8 rounded-lg
+           hover:bg-primary-hover transition-colors disabled:opacity-50
+           disabled:cursor-not-allowed text-base;
+  }
+  .btn-secondary {
+    @apply bg-white text-gray-600 font-medium py-3 px-8 rounded-lg border
+           border-gray-300 hover:bg-gray-50 transition-colors text-base;
+  }
+}
