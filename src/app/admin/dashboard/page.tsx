@@ -89,9 +89,20 @@ export default function AdminDashboardPage() {
       <div className="max-w-6xl mx-auto">
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-2xl font-bold text-gray-900">Fareway Survey Dashboard</h1>
-          <button onClick={handleExport} className="btn-primary">
-            Export CSV
-          </button>
+          <div className="flex gap-3">
+            <button
+              onClick={() => {
+                const testId = `TEST_${Date.now()}`;
+                window.open(`/survey?rid=${testId}&src=admin_test`, '_blank');
+              }}
+              className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50"
+            >
+              Test Survey
+            </button>
+            <button onClick={handleExport} className="btn-primary">
+              Export CSV
+            </button>
+          </div>
         </div>
 
         {/* Completion Metrics */}
